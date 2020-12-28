@@ -15,6 +15,16 @@ const project = new TypeScriptProject({
       ],
     },
   },
+  jest: true,
+  jestOptions: {
+    typescriptConfig: {
+      compilerOptions: {
+        lib: [
+          'es2018', 'DOM', 'DOM.Iterable',
+        ],
+      },
+    },
+  },
 });
 
 project.synth();
