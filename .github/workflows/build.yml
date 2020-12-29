@@ -9,14 +9,19 @@ jobs:
     env:
       CI: "true"
     steps:
-      - uses: actions/checkout@v2
-      - run: npx projen@0.3.87
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install --check-files --frozen-lockfile
+      - name: Synthesize project files
+        run: npx projen
       - name: Anti-tamper check
         run: git diff --exit-code
       - name: Set git identity
         run: |-
           git config user.name "Auto-bump"
           git config user.email "github-actions@github.com"
-      - run: yarn build
+      - name: Build
+        run: npx projen build
       - name: Anti-tamper check
         run: git diff --exit-code

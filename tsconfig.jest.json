@@ -6,7 +6,9 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "lib": [
-      "es2018"
+      "es2018",
+      "DOM",
+      "DOM.Iterable"
     ],
     "module": "CommonJS",
     "noEmitOnError": false,
@@ -24,6 +26,7 @@
     "target": "ES2018"
   },
   "include": [
+    ".projenrc.js",
     "src/**/*.ts",
     "test/**/*.ts"
   ],
